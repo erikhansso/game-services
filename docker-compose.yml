@@ -1,0 +1,25 @@
+services:
+  matchmaking:
+    build: ./matchmaking
+    ports:
+      - "8081:8081"
+    networks:
+      - app-network
+
+  game-session:
+    build: ./game-session
+    ports:
+      - "8082:8082"
+    networks:
+      - app-network
+
+  gateway:
+    build: ./gateway
+    ports:
+      - "8080:8080"
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
