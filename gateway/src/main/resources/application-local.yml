@@ -1,0 +1,26 @@
+spring:
+  datasource:
+    url: jdbc:h2:file:./data/gatewaydb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: password
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  h2:
+    console:
+      enabled: true
+      settings:
+        web-allow-others: true
+
+server:
+  port: 8080
+
+# Logging for local development
+logging:
+  level:
+    root: INFO
+    com.dharmit.game_services: DEBUG
+    org.springframework.web: DEBUG

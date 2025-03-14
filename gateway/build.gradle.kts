@@ -1,3 +1,4 @@
 dependencies {
-    testImplementation("com.h2database:h2")
+    "runtimeOnly"("com.h2database:h2")
+    "testImplementation"("com.h2database:h2")
 }
