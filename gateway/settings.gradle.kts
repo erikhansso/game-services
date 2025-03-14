@@ -1,1 +1,1 @@
-rootProject.name = "game-services"
+rootProject.name = "gateway"
