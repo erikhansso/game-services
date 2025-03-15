@@ -17,7 +17,6 @@ class UserService(
     private val passwordEncoder: PasswordEncoder
 ) : UserDetailsService {
 
-    @Transactional(readOnly = true)
     override fun loadUserByUsername(username: String): UserDetails {
         return userRepository.findByUsername(username)
             .orElseThrow { UsernameNotFoundException("User not found with username: $username") }
@@ -46,7 +45,6 @@ class UserService(
         return userRepository.save(user)
     }
 
-    @Transactional(readOnly = true)
     fun findByUsername(username: String): User? {
         return userRepository.findByUsername(username).orElse(null)
     }
