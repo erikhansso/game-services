@@ -24,3 +24,6 @@ logging:
     root: INFO
     com.dharmit.game_services: DEBUG
     org.springframework.web: DEBUG
+    org.springframework.web.filter.CommonsRequestLoggingFilter: DEBUG
+    org.springframework.boot.actuate.health: DEBUG
+    org.springframework.boot.actuate.endpoint.web: DEBUG

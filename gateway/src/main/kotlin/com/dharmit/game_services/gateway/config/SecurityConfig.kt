@@ -17,6 +17,7 @@ class SecurityConfig {
             .authorizeHttpRequests { authorize ->
                 authorize
                     .requestMatchers("/api/hello").permitAll()
+                    .requestMatchers("/actuator/health/**").permitAll()
                     .anyRequest().authenticated()
             }
             .headers { headers ->

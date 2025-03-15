@@ -5,6 +5,8 @@ services:
       - "8081:8081"
     networks:
       - app-network
+    environment:
+      - SPRING_PROFILES_ACTIVE=local
 
   game-session:
     build: ./game-session
@@ -12,6 +14,8 @@ services:
       - "8082:8082"
     networks:
       - app-network
+    environment:
+      - SPRING_PROFILES_ACTIVE=local
 
   gateway:
     build: ./gateway
@@ -19,6 +23,8 @@ services:
       - "8080:8080"
     networks:
       - app-network
+    environment:
+      - SPRING_PROFILES_ACTIVE=local
 
 networks:
   app-network:
