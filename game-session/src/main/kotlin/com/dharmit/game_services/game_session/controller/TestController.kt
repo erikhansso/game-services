@@ -2,6 +2,7 @@ package com.dharmit.game_services.game_session.controller
 
 import com.dharmit.game_services.game_session.service.TestService
 import org.springframework.http.ResponseEntity
+import org.springframework.security.access.prepost.PreAuthorize
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
@@ -17,6 +18,7 @@ class TestController(private val testService: TestService) {
     data class TestListResponse(val id: Long?, val testValue: String?, val created: String, val updated: String)
 
     @PostMapping
+    @PreAuthorize("hasAuthority('GAME_SESSION_WRITE_DATA')")
     fun createTest(@RequestBody request: TestRequest): ResponseEntity<TestResponse> {
         val savedEntity = testService.saveTestData(request.data)
         return ResponseEntity.ok(
@@ -28,6 +30,7 @@ class TestController(private val testService: TestService) {
     }
     
     @GetMapping
+    @PreAuthorize("hasAuthority('GAME_SESSION_READ_DATA')")
     fun getAllTests(): ResponseEntity<List<TestListResponse>> {
         val testEntities = testService.findAllTestData()
         val response = testEntities.map { entity ->

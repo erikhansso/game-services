@@ -32,3 +32,9 @@ logging:
     org.springframework.web.filter.CommonsRequestLoggingFilter: DEBUG
     org.springframework.boot.actuate.health: DEBUG
     org.springframework.boot.actuate.endpoint.web: DEBUG
+
+microservices:
+  matchmaking:
+    url: ${MATCHMAKING_URL:http://localhost:8081}
+  game-session:
+    url: ${GAME_SESSION_URL:http://localhost:8082}

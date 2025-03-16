@@ -26,4 +26,4 @@ logging:
 
 jwt:
   secret: ${JWT_SECRET:verySecureSecretKeyThatShouldBeChangedInProduction}
-  expiration: 24h
+  expiration: ${JWT_EXPIRATION:24h}
