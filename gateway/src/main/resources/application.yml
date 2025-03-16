@@ -13,18 +13,23 @@ spring:
   liquibase:
     enabled: true
     change-log: classpath:db/changelog/db.changelog-master.yaml
-  h2:
-    console:
-      enabled: true
-      path: /h2-console
 
 server:
   port: 8080
 
-# Logging configuration
 logging:
   level:
     root: INFO
     com.dharmit.game_services: DEBUG
     org.hibernate.SQL: DEBUG
     liquibase: INFO
+
+jwt:
+  secret: ${JWT_SECRET:verySecureSecretKeyThatShouldBeChangedInProduction}
+  expiration: 24h
+
+microservices:
+  matchmaking:
+    url: ${MATCHMAKING_URL:http://matchmaking:8081}
+  game-session:
+    url: ${GAME_SESSION_URL:http://game-session:8082}
